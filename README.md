@@ -1,3 +1,22 @@
+# shouldComponentUpdate()
+https://ru.reactjs.org/docs/optimizing-performance.html#examples
+```
+shouldComponentUpdate(nextProps, nextState) {
+  if (this.props.color !== nextProps.color) {
+    return true;
+  }
+  if (this.state.count !== nextState.count) {
+    return true;
+  }
+  return false;
+}
+```
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
