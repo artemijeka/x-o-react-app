@@ -1,6 +1,6 @@
 /* 
 https://ru.reactjs.org/tutorial/tutorial.html
-Когда вы вызываете setState внутри компонента, React так же автоматически обновляет дочерние компоненты.
+Удалить constructor в Board.
 */
 
 import React from 'react';
@@ -19,29 +19,17 @@ function Square(props) {//функциональный компонент
       </button>
     );
 }
-// class Square extends React.Component {
-//   render() {
-//     return (
-//       <button 
-//         className="square" 
-//         onClick={ ()=>{this.props.onClick()} }
-//       >
-//         {this.props.value}
-//       </button>
-//     );
-//   }
-// }
 
 
 
 class Board extends React.Component {//подклассовый компонент
-  constructor(props) {
-    super(props);
-    this.state = {
-      squares: Array(9).fill(null),//[null, null, null, null, null, null, null, null, null]
-      xIsNext: true,
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     squares: Array(9).fill(null),//[null, null, null, null, null, null, null, null, null]
+  //     xIsNext: true,
+  //   };
+  // }
 
   handleClick(i) {
     const squares = this.state.squares.slice();
@@ -98,6 +86,16 @@ class Board extends React.Component {//подклассовый компонен
 
 
 class Game extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      history: [{
+        squares: Array(9).fill(null),
+      }],
+      xIsNext: true,
+    };
+  }
+
   render() {
     return (
       <div className="game">
